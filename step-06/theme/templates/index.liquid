@@ -1,0 +1,4 @@
+<p>Welcome to {{ shop.name }}</p>
+{% for product in collections['frontpage'].products %}
+  {% render 'product-card' , product: product %}
+{% endfor %}

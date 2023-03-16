@@ -1,0 +1,20 @@
+<article>
+    <a href={{ product.url }}>
+        <h3>{{ product.title }}</h3>
+        <img 
+            src="{{ product.featured_image | image_url: width: 300 }}" 
+            width="{{ image.width }}" 
+            height="{{ image.height }}" 
+            loading="lazy" />
+        <p>{{ product.price | money }}</p>
+    </a>
+    {% form 'product', product %}
+        <select name="id">
+            {% for variant in product.variants %}
+                <option value="{{ variant.id }}">{{ variant.title }}</option>
+            {% endfor %}
+        </select>
+      
+        <button type="submit">Add to cart</button>
+      {% endform %}
+</article>
